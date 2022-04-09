@@ -104,6 +104,8 @@ public class CountingDown extends JLabel implements Runnable {
     @Override
     public void run(){
         while (thread == Thread.currentThread()){ 
+            if (number == 1)
+                stop();
             number -= 1;
             String r = Integer.toString(number);
             setText(r);
