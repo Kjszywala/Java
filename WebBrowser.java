@@ -52,8 +52,7 @@ public class WebBrowser extends JFrame implements ActionListener,
         add(BorderLayout.SOUTH, status); 
     } 
     /**
-     * 
-     * @param Button clicked action event.
+     * Button clicked action event.
      * URL definition.
      */
     public void actionPerformed(ActionEvent ex) { 
