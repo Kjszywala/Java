@@ -84,8 +84,8 @@ public class WebBrowser extends JFrame implements ActionListener,
             site.setPage(url); 
             address.setText(url.getProtocol() + "://"+ url.getHost() 
             + url.getFile()); 
-        } catch (Exception threed) { 
-            site.setText("\nError:\n" + threed); 
+        } catch (Exception exception) { 
+            site.setText("\nError:\n" + exception); 
         } 
     } 
 }
