@@ -1,4 +1,4 @@
-public class ChessBoard extends JComponent {
+public class CheckersBoard extends JComponent {
     
     private final int size = 90;
     private final int HEIGHT = 100;
