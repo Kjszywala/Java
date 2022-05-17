@@ -1,5 +1,6 @@
 public class ChessBoard extends JComponent {
     
+    private final int size = 90;
     private final int HEIGHT = 100;
     private final int WIDTH = 100;
     protected int positionX = 0;
