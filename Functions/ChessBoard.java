@@ -22,12 +22,11 @@ public class ChessBoard extends JComponent{
                 if(isWhite){
                     g.setColor(Color.white);
                     g.fillRect(i*100, j*100, WIDTH, HEIGHT);
-                    isWhite = !isWhite;
                 } else {
                     g.setColor(Color.black);
                     g.fillRect(i*100, j*100, WIDTH, HEIGHT);
-                    isWhite = !isWhite;
                 }
+                isWhite = !isWhite;
             }
             isWhite = !isWhite;
         }
