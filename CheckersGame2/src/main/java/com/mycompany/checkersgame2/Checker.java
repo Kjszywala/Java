@@ -17,7 +17,7 @@ public class Checker {
     protected int y;
     LinkedList<Checker> checkers;
     protected boolean white = false;
-
+    
     public Checker(int positionX,
                     int positionY,
                     boolean white,
@@ -43,6 +43,11 @@ public class Checker {
                 }
             }
             if((positionX+positionY)%2==0){
+                x = this.positionX*100+5;
+                y = this.positionY*100+5;
+                return;
+            }
+            if((white==false) && ((positionY-NewGame.selectedChecker.positionY)>=2)){
                 x = this.positionX*100+5;
                 y = this.positionY*100+5;
                 return;

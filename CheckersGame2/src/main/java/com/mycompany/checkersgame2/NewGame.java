@@ -60,6 +60,7 @@ public class NewGame implements ActionListener {
     
     public static LinkedList<Checker> checkers = new LinkedList();
     public static Checker selectedChecker = null;
+    protected int selectedCheckerpositionY;
 
     public NewGame(){
         
@@ -181,12 +182,14 @@ public class NewGame implements ActionListener {
             @Override
 
             public void mousePressed(MouseEvent e) {
+                selectedCheckerpositionY = e.getY()/100;
                 selectedChecker = getChecker(e.getX()-40,e.getY()-40);
             }
 
             @Override
             public void mouseReleased(MouseEvent e) {
                 //try{
+                    //System.out.println(selectedChecker.positionX+" "+selectedChecker.positionY);
                     selectedChecker.Move(e.getX()/100, e.getY()/100);
                     frame.repaint();
                 //}catch(NullPointerException ex){
@@ -255,7 +258,7 @@ public class NewGame implements ActionListener {
             }
         }
         return null;
-        }
+    }
 } 
 
 
