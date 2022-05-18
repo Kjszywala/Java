@@ -42,6 +42,11 @@ public class Checker {
                     return;
                 }
             }
+            if((positionX+positionY)%2==0){
+                x = this.positionX*100+5;
+                y = this.positionY*100+5;
+                return;
+            }
             this.positionX = positionX;
             this.positionY = positionY;
             x = positionX*100+5;
