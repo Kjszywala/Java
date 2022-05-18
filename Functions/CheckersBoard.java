@@ -23,11 +23,10 @@ public class CheckersBoard extends JComponent {
             for(int i = 0; i<8; i++) {
                 if(isWhite) {
                     g.setColor(Color.white);
-                    g.fillRect(i*100, j*100, WIDTH, HEIGHT);
                 } else {
                     g.setColor(Color.black);
-                    g.fillRect(i*100, j*100, WIDTH, HEIGHT);
                 }
+                g.fillRect(i*100, j*100, WIDTH, HEIGHT);
                 isWhite = !isWhite;
             }
             isWhite = !isWhite;
