@@ -40,8 +40,7 @@ import static javax.swing.WindowConstants.HIDE_ON_CLOSE;
  */
 public class NewGame implements ActionListener {
     
-    static final int portSerwera = 6623;
-    //protected String adresSerwera = "127.0.0.1";192.168.1.186
+    static final int portSerwera = 6623;//192.168.1.186
     protected String adresSerwera = "192.168.1.186";//88.105.17.179
     protected InetAddress iAdres = null;
     protected Socket socket = null; 
@@ -60,40 +59,39 @@ public class NewGame implements ActionListener {
     
     public static LinkedList<Checker> checkers = new LinkedList();
     public static Checker selectedChecker = null;
-    protected int selectedCheckerpositionY;
 
     public NewGame(){
         
         int size = 90;
         int HEIGHT = 100;
         int WIDTH = 100;
-        boolean isWhite = true;
-        
-        Checker bc1 = new Checker(1,0,false,checkers);
-        Checker bc2 = new Checker(3,0,false,checkers);
-        Checker bc3 = new Checker(5,0,false,checkers);
-        Checker bc4 = new Checker(7,0,false,checkers);
-        Checker bc5 = new Checker(0,1,false,checkers);
-        Checker bc6 = new Checker(2,1,false,checkers);
-        Checker bc7 = new Checker(4,1,false,checkers);
-        Checker bc8 = new Checker(6,1,false,checkers);
-        Checker bc9 = new Checker(1,2,false,checkers);
-        Checker bc10 = new Checker(3,2,false,checkers);
-        Checker bc11 = new Checker(5,2,false,checkers);
-        Checker bc12 = new Checker(7,2,false,checkers);
+        //boolean isWhite = true;
 
-        Checker wc1 = new Checker(0,7,true,checkers);
-        Checker wc2 = new Checker(2,7,true,checkers);
-        Checker wc3 = new Checker(4,7,true,checkers);
-        Checker wc4 = new Checker(6,7,true,checkers);
-        Checker wc5 = new Checker(1,6,true,checkers);
-        Checker wc6 = new Checker(3,6,true,checkers);
-        Checker wc7 = new Checker(5,6,true,checkers);
-        Checker wc8 = new Checker(7,6,true,checkers);
-        Checker wc9 = new Checker(0,5,true,checkers);
-        Checker wc10 = new Checker(2,5,true,checkers);
-        Checker wc11 = new Checker(4,5,true,checkers);
-        Checker wc12 = new Checker(6,5,true,checkers);
+        Checker wc1 = new Checker(0,7,true,checkers,false);
+        Checker wc2 = new Checker(2,7,true,checkers,false);
+        Checker wc3 = new Checker(4,7,true,checkers,false);
+        Checker wc4 = new Checker(6,7,true,checkers,false);
+        Checker wc5 = new Checker(1,6,true,checkers,false);
+        Checker wc6 = new Checker(3,6,true,checkers,false);
+        Checker wc7 = new Checker(5,6,true,checkers,false);
+        Checker wc8 = new Checker(7,6,true,checkers,false);
+        Checker wc9 = new Checker(0,5,true,checkers,false);
+        Checker wc10 = new Checker(2,5,true,checkers,false);
+        Checker wc11 = new Checker(4,5,true,checkers,false);
+        Checker wc12 = new Checker(6,5,true,checkers,false);
+        
+        Checker bc1 = new Checker(1,0,false,checkers,false);
+        Checker bc2 = new Checker(3,0,false,checkers,false);
+        Checker bc3 = new Checker(5,0,false,checkers,false);
+        Checker bc4 = new Checker(7,0,false,checkers,false);
+        Checker bc5 = new Checker(0,1,false,checkers,false);
+        Checker bc6 = new Checker(2,1,false,checkers,false);
+        Checker bc7 = new Checker(4,1,false,checkers,false);
+        Checker bc8 = new Checker(6,1,false,checkers,false);
+        Checker bc9 = new Checker(1,2,false,checkers,false);
+        Checker bc10 = new Checker(3,2,false,checkers,false);
+        Checker bc11 = new Checker(5,2,false,checkers,false);
+        Checker bc12 = new Checker(7,2,false,checkers,false);
         
         JPanel checkersBoard = new JPanel(new BorderLayout());
         JPanel board=new JPanel(){
@@ -115,9 +113,9 @@ public class NewGame implements ActionListener {
                 }
                 for(Checker c: checkers) {
                     if(c.white) {
-                        g.setColor(Color.decode("#803f1f"));
+                        g.setColor(Color.decode("#c7c4c3"));
                     } else {
-                        g.setColor(Color.decode("#e6deda"));
+                        g.setColor(Color.decode("#803f1f"));
                     }
                     g.fillOval(c.x, c.y, size, size);
                 }
@@ -182,18 +180,17 @@ public class NewGame implements ActionListener {
             @Override
 
             public void mousePressed(MouseEvent e) {
-                selectedCheckerpositionY = e.getY()/100;
                 selectedChecker = getChecker(e.getX()-40,e.getY()-40);
             }
 
             @Override
             public void mouseReleased(MouseEvent e) {
-                //try{
+                try{
                     //System.out.println(selectedChecker.positionX+" "+selectedChecker.positionY);
                     selectedChecker.Move(e.getX()/100, e.getY()/100);
                     frame.repaint();
-                //}catch(NullPointerException ex){
-                //}
+                }catch(NullPointerException ex){
+                }
             }
 
             @Override
@@ -210,13 +207,12 @@ public class NewGame implements ActionListener {
         try {
             iAdres = InetAddress.getByName(adresSerwera);
             textArea.append("Connecting to the address = " + iAdres + "\n");
-            //textArea.append("Waiting for opponent\n");
         } catch (Exception e) { 
             System.exit(0); 
         }
         try {
             System.out.println(iAdres);
-            socket = new Socket(iAdres, portSerwera);//88.105.17.179
+            socket = new Socket(iAdres, portSerwera);
             textArea.append("Connected\n");
             System.out.println(socket);
         } catch (IOException e) {
