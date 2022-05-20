@@ -46,6 +46,7 @@ public class Checker {
                         System.out.println(NewGame.selectedChecker.positionX+" "+ NewGame.selectedChecker.positionY);
                         x = this.positionX*100+5;
                         y = this.positionY*100+5;
+                        return;
                     }
                     if(NewGame.getChecker(positionX*100, positionY*100)!=null){
                         if(NewGame.getChecker(positionX*100, positionY*100).white==white){
@@ -56,13 +57,6 @@ public class Checker {
                         if(NewGame.getChecker(positionX*100, positionY*100).white!=white){
                             if(NewGame.selectedChecker.positionY<positionY){
                                 NewGame.getChecker(positionX*100, positionY*100).kill();
-//                                if(NewGame.selectedChecker.positionX < positionX){
-//                                    x = (this.positionX+2)*100+5;
-//                                }else{
-//                                    x = (this.positionX-2)*100+5;
-//                                }
-//                                y = (this.positionY+2)*100+5;
-//                                return;
                             }else{
                                 x = this.positionX*100+5;
                                 y = this.positionY*100+5;
@@ -90,8 +84,6 @@ public class Checker {
                         if(NewGame.getChecker(positionX*100, positionY*100).white!=white){
                             if(NewGame.selectedChecker.positionY>positionY){
                                 NewGame.getChecker(positionX*100, positionY*100).kill();
-                                x = (this.positionX)*100+5;
-                                y = (this.positionY)*100+5;
                             }else{
                                 x = this.positionX*100+5;
                                 y = this.positionY*100+5;
