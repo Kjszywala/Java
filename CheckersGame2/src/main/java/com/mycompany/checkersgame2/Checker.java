@@ -43,7 +43,7 @@ public class Checker {
                     (NewGame.selectedChecker.positionX-positionX)>=2    || 
                     (positionX-NewGame.selectedChecker.positionX)>=2    ||
                     (positionY<NewGame.selectedChecker.positionY)){
-                        System.out.println(NewGame.selectedChecker.positionX+" "+ NewGame.selectedChecker.positionY);
+                        System.out.println(NewGame.selectedChecker.positionX+" "+ NewGame.selectedChecker.positionY+" this.positionX-2 = "+ (this.positionX-2));
                         x = this.positionX*100+5;
                         y = this.positionY*100+5;
                         return;
@@ -56,7 +56,24 @@ public class Checker {
                         }
                         if(NewGame.getChecker(positionX*100, positionY*100).white!=white){
                             if(NewGame.selectedChecker.positionY<positionY){
-                                NewGame.getChecker(positionX*100, positionY*100).kill();
+                                if(NewGame.selectedChecker.positionX<positionX){
+                                    if(this.positionX+2<8){
+                                        NewGame.getChecker(positionX*100, positionY*100).kill();
+                                    }else{
+                                        x = this.positionX*100+5;
+                                        y = this.positionY*100+5;
+                                        return;
+                                    }
+                                }
+                                if(NewGame.selectedChecker.positionX>positionX){
+                                    if(this.positionX-2>=0){
+                                        NewGame.getChecker(positionX*100, positionY*100).kill();
+                                    }else{
+                                        x = this.positionX*100+5;
+                                        y = this.positionY*100+5;
+                                        return;
+                                    }
+                                }
                             }else{
                                 x = this.positionX*100+5;
                                 y = this.positionY*100+5;
