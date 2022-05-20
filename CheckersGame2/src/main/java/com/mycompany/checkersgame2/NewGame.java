@@ -41,8 +41,8 @@ import static javax.swing.WindowConstants.HIDE_ON_CLOSE;
  */
 public class NewGame implements ActionListener {
     
-    static final int portSerwera = 6623;//192.168.1.186
-    protected String adresSerwera = "192.168.1.186";//88.105.17.179
+    static final int portSerwera = 6623;
+    protected String adresSerwera = "***.***.*.*";
     protected InetAddress iAdres = null;
     protected Socket socket = null; 
     protected ServerSocket serverSocket;
