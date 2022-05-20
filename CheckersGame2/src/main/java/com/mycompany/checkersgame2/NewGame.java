@@ -33,6 +33,7 @@ import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
+import static javax.swing.WindowConstants.EXIT_ON_CLOSE;
 import static javax.swing.WindowConstants.HIDE_ON_CLOSE;
 /**
  *
@@ -152,7 +153,7 @@ public class NewGame implements ActionListener {
         frame.setContentPane(checkersBoard);
         frame.setResizable(false);
         frame.setVisible(true);
-        frame.setDefaultCloseOperation(HIDE_ON_CLOSE);
+        frame.setDefaultCloseOperation(EXIT_ON_CLOSE);
         
         frame.addMouseMotionListener(new MouseMotionListener() {
             @Override
